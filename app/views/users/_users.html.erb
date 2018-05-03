@@ -1,6 +1,8 @@
 <% if users.any? %>
   <ul class="media-list">
     <% users.each do |user| %>
+    <div class="well">
+
       <li class ="media">
         <div classs="media-left">
           <img class="media-object img-rounded" src="<%= gravatar_url(user, { size: 50}) %>" alt="">
@@ -14,6 +16,7 @@
           </div>        
         </div>
       </li>
+     </div>
     <%end%>
   </ul>
   <%= paginate users %>

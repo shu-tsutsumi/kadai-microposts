@@ -1,0 +1,11 @@
+  <% if current_user.likes?(micropost) %>
+    <%= form_for(current_user.favorites.find_by(favorite_id: micropost.id), html: { method: :delete }) do |f| %>
+      <%= hidden_field_tag :favorite_id,  micropost.id %>
+      <%= f.submit '解除', class: 'btn btn-default btn-xs' %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.favorites.build) do |f| %>
+      <%= hidden_field_tag :favorite_id, micropost.id %>
+      <%= f.submit '登録', class: 'btn btn-warning btn-xs' %>
+    <% end %>
+  <% end %>

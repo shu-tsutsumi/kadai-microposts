@@ -7,11 +7,14 @@
         </div>
         <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
       <% end %>
+      <br>
+      <%= link_to 'Favorites', likes_user_path(@user), class: 'btn btn-xs btn-success' %> 
+
     </aside>
     <div class="col-xs-8">
       <%= render 'microposts/microposts',microposts: @microposts %>
     </div>
-    <p>ログイン完了ユーザa: <%= current_user.name %></p>
+    <p>ログイン完了ユーザ: <%= current_user.name %></p>
   </div>
 <% else %>
   <div class="centerjumbotron">

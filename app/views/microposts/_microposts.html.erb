@@ -1,6 +1,8 @@
 <ul class="media-list".
   <% microposts.each do |micropost| %>
     <li class = "media">
+    
+    <div class="well">
       <div class = "media-left">
         <img class = "media-object img-rounded" src="<%= gravatar_url(micropost.user, options = { size: 25 }) %>" alt="">"
       </div>
@@ -15,7 +17,13 @@
           <% if current_user == micropost.user %>
             <%= link_to "Delete", micropost, method: :delete, data: {confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
           <% end %>  
+
+          <% if current_user != micropost.user %>
+            <%= render 'favorites/favorite_button', micropost: micropost %>
+          <% end %>  
+
         </div>
+      </div>  
       </div>
     </li>
   <% end %>
