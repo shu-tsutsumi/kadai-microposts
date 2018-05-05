@@ -33,8 +33,8 @@ class User < ApplicationRecord
   end
   
   def feed_microposts
-#    Micropost.where(user_id: self.following_ids + [self.id])
-    Micropost.all
+     Micropost.where(user_id: self.following_ids + [self.id])
+#    Micropost.all
   end
   
   def likes_reg(fav_post)
